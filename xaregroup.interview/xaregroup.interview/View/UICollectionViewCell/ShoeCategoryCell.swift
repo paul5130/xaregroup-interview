@@ -77,6 +77,9 @@ extension ShoeCategoryCell{
         brandLabel.text = model.brand
         typeLabel.text = model.type
         priceLabel.text = model.price
+//        if let url = URL(string: model.imageUrl){
+//            shoeImageView.load(url: url)
+//        }
     }
 }
 struct ShoeCategoryCell_Previews: PreviewProvider {

@@ -12,6 +12,7 @@ import SwiftUI
 class LatestShoesView: UIView{
     private let cellId = "cellId"
     private let headerView = CellHeaderView()
+    private var items = [URL]()
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -36,14 +37,22 @@ class LatestShoesView: UIView{
     }
     
 }
+extension LatestShoesView{
+    func configure(items: [URL]){
+        self.items = items
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+}
 extension LatestShoesView: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ShoeCell
-//        cell.configure(items[indexPath.item])
+        cell.configure(url: items[indexPath.item])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        items.count
     }
 }
 extension LatestShoesView: UICollectionViewDelegate{

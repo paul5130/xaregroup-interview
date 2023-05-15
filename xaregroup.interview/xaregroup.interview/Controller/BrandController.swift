@@ -53,6 +53,13 @@ class BrandController: UIViewController{
         viewModel.fetchData()
         viewModel.getShoesCellViewModel = { [weak self] getShoesCellViewModel in
             self?.shoesCellView.configure(getShoesCellViewModel)
+            var imageUrls = [URL]()
+            getShoesCellViewModel.items.forEach { cellVM in
+                if let url = URL(string: cellVM.imageUrl){
+                    imageUrls.append(url)
+                }
+            }
+            self?.latestShoesView.configure(items: imageUrls)
             DispatchQueue.main.async {
                 self?.shoesCellView.isHidden = false
             }

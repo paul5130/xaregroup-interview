@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D74480E12A123DC6006A4134 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74480E02A123DC6006A4134 /* Extension+UIImageView.swift */; };
 		D79E20802A1061C7002E16FB /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79E207F2A1061C7002E16FB /* Extension+UIImage.swift */; };
 		D79E20822A1083D1002E16FB /* CellHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79E20812A1083D1002E16FB /* CellHeaderView.swift */; };
 		D79E20842A108917002E16FB /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79E20832A108917002E16FB /* CategoryCell.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D74480E02A123DC6006A4134 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
 		D79E207F2A1061C7002E16FB /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		D79E20812A1083D1002E16FB /* CellHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHeaderView.swift; sourceTree = "<group>"; };
 		D79E20832A108917002E16FB /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				D7DAD97A2A105EDF00CAADFE /* Extension+UIView.swift */,
 				D7DAD97C2A105EFC00CAADFE /* Extension+UIColor.swift */,
 				D79E207F2A1061C7002E16FB /* Extension+UIImage.swift */,
+				D74480E02A123DC6006A4134 /* Extension+UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				D7DAD9562A0F1E8400CAADFE /* AppDelegate.swift in Sources */,
 				D79E20942A10C6C8002E16FB /* HeaderView.swift in Sources */,
 				D79E20902A1098DA002E16FB /* ShoesMapper.swift in Sources */,
+				D74480E12A123DC6006A4134 /* Extension+UIImageView.swift in Sources */,
 				D7DAD9582A0F1E8500CAADFE /* SceneDelegate.swift in Sources */,
 				D79E20A62A11D2DA002E16FB /* HomeViewModel.swift in Sources */,
 				D79E209C2A112818002E16FB /* ShoesCellView.swift in Sources */,

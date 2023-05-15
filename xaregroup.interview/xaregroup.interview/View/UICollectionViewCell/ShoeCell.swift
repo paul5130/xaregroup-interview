@@ -17,14 +17,14 @@ class ShoeCell: UICollectionViewCell{
     private let shoeImageView: UIImageView = {
         let iv = UIImageView()
         iv.image = .nikeShoe()
-        iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleAspectFit
         return iv
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .grayBackgroundColor()
         addSubview(shoeImageView)
-        shoeImageView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 20, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: 0, height: 0)
+        shoeImageView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 30, paddingLeft: 30, paddingBottom: 30, paddingRight: 30, width: 0, height: 0)
         addSubview(heartImageView)
         heartImageView.anchor(top: topAnchor, left: nil, bottom: nil, right: rightAnchor, paddingTop: 10, paddingLeft: 0, paddingBottom: 0, paddingRight: 10, width: 20, height: 20)
         layer.cornerRadius = 10
@@ -36,7 +36,11 @@ class ShoeCell: UICollectionViewCell{
     }
     
 }
-
+extension ShoeCell{
+    func configure(url: URL){
+        shoeImageView.load(url: url)
+    }
+}
 struct ShoeCell_Previews: PreviewProvider {
     static var previews: some View{
         ContainerView().previewLayout(.fixed(width: 156, height: 156))
