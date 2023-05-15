@@ -45,8 +45,10 @@ class CellHeaderView: UIView{
 }
 extension CellHeaderView{
     func configure(_ model: CellHeaderViewModel){
-        label.text = model.text
-        seeMoreButton.isHidden = !model.showSeeMore
+        DispatchQueue.main.async {
+            self.label.text = model.text
+            self.seeMoreButton.isHidden = !model.showSeeMore
+        }
     }
 }
 struct CellHeaderView_Previews: PreviewProvider {

@@ -57,7 +57,7 @@ extension ShoesCellView{
     func configure(_ model: ShoesCellViewModel){
         headerView.configure(model.headerViewModel)
         self.items = model.items
-        DispatchQueue.main.async {
+        DispatchQueue.main.async {        
             self.collectionView.reloadData()
         }
     }

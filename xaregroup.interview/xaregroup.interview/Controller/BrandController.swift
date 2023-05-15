@@ -9,6 +9,7 @@ import UIKit
 import SwiftUI
 
 class BrandController: UIViewController{
+    private let viewModel: BrandViewModel
     private let headerView = HeaderView()
     private let headerBottomView = HeaderBottomView()
     private let shoesCellView = ShoesCellView()
@@ -24,6 +25,14 @@ class BrandController: UIViewController{
         view.heightAnchor.constraint(equalToConstant: height).isActive = true
         return view
     }
+    init(viewModel: BrandViewModel){
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(scrollView)
@@ -34,25 +43,19 @@ class BrandController: UIViewController{
         stackView.addArrangedSubview(createEmptyView(height: 15))
         stackView.addArrangedSubview(headerBottomView)
         stackView.addArrangedSubview(shoesCellView)
-        shoesCellView.configure(ShoesCellViewModel(headerViewModel: .init(text: "Running", showSeeMore: true), items: [
-            .init(brand: "Adidas", type: "Yung - I", price: "128.99", imageUrl: ""),
-            .init(brand: "Nike", type: "Free Metcon", price: "120.99", imageUrl: "")
-        ]))
+        shoesCellView.isHidden = true
         stackView.addArrangedSubview(latestShoesView)
         stackView.addArrangedSubview(createEmptyView(height: 100))
         stackView.addArrangedSubview(UIView())
+        setupObserver()
     }
-}
-struct BrandController_Previews: PreviewProvider {
-    static var previews: some View{
-        ContainerView()
-    }
-    struct ContainerView: UIViewControllerRepresentable {
-        func makeUIViewController(context: Context) -> some UIViewController {
-            BrandController()
-        }
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-
+    private func setupObserver(){
+        viewModel.fetchData()
+        viewModel.getShoesCellViewModel = { [weak self] getShoesCellViewModel in
+            self?.shoesCellView.configure(getShoesCellViewModel)
+            DispatchQueue.main.async {
+                self?.shoesCellView.isHidden = false
+            }
         }
     }
 }
